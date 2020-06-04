@@ -1,14 +1,14 @@
 # AVCProject3ENGR101
 
-**Team Name:**
+**Team Name:**<br />
 
-**Team Members & contact info:**
-**X** Taylor Silson, trsilson@gmail.com
-**X** Lachlan Paulsen, fireballinator@gmail.com
-**X** Rebecca Mudge, rmudgenz@gmail.com
-**X** Rosanne Saparamadu, rosanne.sap@gmail.com
+**Team Members & contact info:**<br />
+**X** Taylor Silson, trsilson@gmail.com<br />
+**X** Lachlan Paulsen, fireballinator@gmail.com<br />
+**X** Rebecca Mudge, rmudgenz@gmail.com<br />
+**X** Rosanne Saparamadu, rosanne.sap@gmail.com<br />
 
-**Communication tool:**
-**X** Discord Group Chat
-**X** Github
-**X** Google Docs.
+**Communication tools:**<br />
+**X** Discord Group Chat<br />
+**X** Github<br />
+**X** Google Docs.<br />
