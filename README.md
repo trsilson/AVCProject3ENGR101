@@ -2,7 +2,7 @@
 
 ## AVC PLAN
 
-**Team Name:**Insomniac Engineers<br />
+**Team Name:** Insomniac Engineers<br />
 
 **Team Members & contact info:**<br />
 **X** Taylor Silson, trsilson@gmail.com<br />
@@ -16,6 +16,6 @@
 **X** Google Docs.<br />
 
 **Roles:**<br />
-No particular roles were given to team members. All team members will participate equally with planning, coding and writing logs which could help promote different aspects of knowledge for each team member.<br />
+> No particular roles were given to team members. All team members will participate equally with planning, coding and writing logs which could help promote different aspects of knowledge for each team member.<br />
 
 
