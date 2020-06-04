@@ -1,6 +1,5 @@
 # AVCProject3ENGR101
 
-**AVC Plan**
 **Team Name:**
 
 **Team Members & contact info:**
