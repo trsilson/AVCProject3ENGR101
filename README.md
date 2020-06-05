@@ -1,13 +1,11 @@
-## ** AVC PLAN**
+## AVC PLAN
 
 
 
-1. 
-**Team Name: Insomniac Engineers**
+1. **Team Name: Insomniac Engineers**
 
 
-2. 
-**Team Members & contact info:**
+2. **Team Members & contact info:**
 X Taylor Silson, trsilson@gmail.com
 
 X Lachlan Paulsen, fireballinator@gmail.com
@@ -18,14 +16,12 @@ X Rosanne Saparamadu, rosanne.sap@gmail.com
 
 
 
-3. 
-**Communication tool:**
+3. **Communication tool:**
 Discord Group Chat, Github, Google Docs.
 
 
 
-4. 
-**Roles:**
+4. **Roles:**
 No particular roles were given to team members. All team members will participate equally with planning, coding and writing logs which could help promote different aspects of knowledge for each team member.
 
 
@@ -205,10 +201,10 @@ assignment
 
 
 
-*   weekends (5th - 7th june): team members will set up software SFML on computers and catch up with relevant lectures in order to help write the code for core
+*   Weekends (5th - 7th june): team members will set up software SFML on computers and catch up with relevant lectures in order to help write the code for core
 *   Monday to tuesday (8th -  9th june)- Complete core aspect
 *   Wednesday to Thursday (10th - 11th June) - complete completion aspect
-*   code (core, completion and challenge) due on the (19th june)
+*   Code (core, completion and challenge) due on the (19th june)
 *   AVC log 24th 
 
     All team members will participate equally with planning, coding and writing logs which could help promote different aspects of knowledge for each team member.
