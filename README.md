@@ -7,13 +7,13 @@
 
 **Team Members & contact info:**
 
-X Taylor Silson, trsilson@gmail.com
+*   Taylor Silson, trsilson@gmail.com
 
-X Lachlan Paulsen, fireballinator@gmail.com
+*   Lachlan Paulsen, fireballinator@gmail.com
 
-X Rebecca Mudge, rmudgenz@gmail.com
+*   Rebecca Mudge, rmudgenz@gmail.com
 
-X Rosanne Saparamadu, rosanne.sap@gmail.com
+*   Rosanne Saparamadu, rosanne.sap@gmail.com
 
 
 
