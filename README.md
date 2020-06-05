@@ -2,10 +2,11 @@
 
 
 
-1. **Team Name: Insomniac Engineers**
+**Team Name: Insomniac Engineers**
 
 
-2. **Team Members & contact info:**
+**Team Members & contact info:**
+
 X Taylor Silson, trsilson@gmail.com
 
 X Lachlan Paulsen, fireballinator@gmail.com
@@ -16,12 +17,12 @@ X Rosanne Saparamadu, rosanne.sap@gmail.com
 
 
 
-3. **Communication tool:**
+**Communication tool:**
 Discord Group Chat, Github, Google Docs.
 
 
 
-4. **Roles:**
+**Roles:**
 No particular roles were given to team members. All team members will participate equally with planning, coding and writing logs which could help promote different aspects of knowledge for each team member.
 
 
