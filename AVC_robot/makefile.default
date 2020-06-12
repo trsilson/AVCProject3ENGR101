@@ -1,0 +1,31 @@
+#Detect operating system here.s
+OSFLAG 				:=
+ifeq ($(OS),Windows_NT)
+	OSFLAG += WIN32
+else
+	UNAME_S := $(shell uname -s)
+	ifeq ($(UNAME_S),Linux)
+		OSFLAG += LINUX
+	endif
+	ifeq ($(UNAME_S),Darwin)
+		OSFLAG += OSX
+	endif
+endif
+
+#SFML locations:
+#Windows: C:\\SFML
+#MAC /usr/local/lib/SFML
+
+
+DIR = C:\\SFML
+CFLAGS = -I ${DIR}\include 
+LFLAGS = -L ${DIR}\lib 
+LIBS = -lsfml-window  -lsfml-graphics -lsfml-system -lsfml-network 
+robot: robot.o 
+	g++ $(LFLAGS) -o robot robot.o ${LIBS}
+	@echo $(OSFLAG) 
+robot.o: robot.cpp 
+	g++  -c $(CFLAGS) robot.cpp
+	@echo $(OSFLAG)
+
+
