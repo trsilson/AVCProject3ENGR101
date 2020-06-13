@@ -40,20 +40,22 @@ int main(){
 				error = error + (i - (cameraView.width / 2));
 				std::cout<<" error = "<<error<<std::endl;
 			}
-				if ( error > 0 ) { // if the white pixels is on right increase right motor
-		vLeft = vBaseLine;
-		vRight = vBaseLine - error*kP; 
-		std::cout<<" increasing right motor"<<std::endl;
-	} else if (error < 0 ) { // if the white pixels is on left increase left motor
-		vLeft = vBaseLine  + error*kP;
-		vRight = vBaseLine; 
-		std::cout<<" increasing left motor"<<std::endl;
-	} else { // else have steady speed
-		vLeft = vBaseLine;
-		vRight = vBaseLine; 
-		std::cout<<" steady speed"<<std::endl;
-	}
 		}
+
+    if ( error > 0 ) { // if the white pixels is on right increase right motor
+        vLeft = vBaseLine;
+        vRight = vBaseLine - error * kP; 
+		    std::cout<<" increasing right motor"<<std::endl;
+	  } else if (error < 0 ) { // if the white pixels is on left increase left motor
+        vLeft = vBaseLine  + error * kP;
+        vRight = vBaseLine; 
+        std::cout<<" increasing left motor"<<std::endl;
+	  } else { // else have steady speed
+        vLeft = vBaseLine;
+        vRight = vBaseLine; 
+        std::cout<<" steady speed"<<std::endl;
+	  }
+
 		
   } //while
 
