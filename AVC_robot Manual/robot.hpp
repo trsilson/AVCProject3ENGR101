@@ -75,7 +75,7 @@ int initClientRobot(){
 // returns color component (color==0 -red,color==1-green,color==2-blue
 // color == 3 - luminocity
 // for pixel located at (row,column)
-unsigned char get_pixel( ImagePPM image,int row,int col, int color)
+unsigned char get_pixel(ImagePPM image,int row,int col, int color)
 {
     // calculate address in 1D array of pixels
     int address = image.width*row*3 + col*3;  // standard ppm

@@ -8,7 +8,7 @@ class ScanLine {
   ScanLine(std::string lineType, int position);
 
   double getError();
-  bool containsWhite();
+  bool checkWhite();
   void update(ImagePPM image);
   private:
 
@@ -42,6 +42,11 @@ void ScanLine::update(ImagePPM image){
     int numOfPixels = image.width;
   }
 
+
+  int whiteCount = 0;
+  this->containsWhite = false;
+
+
   for (int iPixel = 0; iPixel < numOfPixels; iPixel++){
     int pixelLum;
 
@@ -53,19 +58,38 @@ void ScanLine::update(ImagePPM image){
       pixelLum = get_pixel(image, iPixel, this->position, 3);
     }
 
+  
+
+  if (pixelLum > 250){
+    pixelList.push_back(1);
+    this->containsWhite = true;
+    whiteCount++;
+  }
+  else{
+    pixelList.push_back(0);
+  }
 
   }
+
+  this->error = 0;
+  
+  
+  for (int i = 0; i < pixelList.size(); i++){
+    if (pixelList.at(i) == 1){
+      this-> error = this-> error + (i - (numOfPixels / 2));
+      whiteCount ++;
+    }
+  }
+  std::cout<<"Current error is " << this->error <<std::endl;
+  std::cout<<"We have white " << this->containsWhite << std::endl;
+  std::cout<<"pixelList array size" << pixelList.size() << std::endl;
+  std::cout<<"White count" << whiteCount << std::endl;
 }
 
 double ScanLine::getError(){
   
 }
 
-
-
-ScanLine topScan = ScanLine("row", 250);
-ScanLine leftScan = ScanLine("col", 0);
-ScanLine rightScan = ScanLine("col", 500);
 
 
 /* variables */
@@ -128,10 +152,11 @@ int main(){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
 
+ 
+
   while(1){
-    takePicture();
+    OpenPPMFile("cameraShot.png", cameraView);
     SavePPMFile("i0.ppm",cameraView);
-    ScanLine testLine = ScanLine("C", 50);
 
 
 
