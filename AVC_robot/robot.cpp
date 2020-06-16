@@ -1,4 +1,72 @@
 #include "robot.hpp"
+#include <vector>
+
+
+
+class ScanLine {
+  public:
+  ScanLine(std::string lineType, int position);
+
+  double getError();
+  bool containsWhite();
+  void update(ImagePPM image);
+  private:
+
+  double error;
+  std::string lineType;
+  int position;
+  bool containsWhite = false;
+  
+
+};
+
+ScanLine::ScanLine(std::string lineType, int position){
+  if (lineType == "row"){
+    this->lineType = "col";
+  }
+  if (lineType == "col"){
+    this->lineType = "row";
+  }
+  this->position = position;
+}
+
+void ScanLine::update(ImagePPM image){
+  //This will hold
+  std::vector<int> pixelList;
+
+  int numOfPixels;
+  if (lineType == "col"){
+    int numOfPixels = image.height;
+  }
+  else if (lineType == "row"){
+    int numOfPixels = image.width;
+  }
+
+  for (int iPixel = 0; iPixel < numOfPixels; iPixel++){
+    int pixelLum;
+
+
+    if (lineType == "row"){
+      pixelLum = get_pixel(image, this->position, iPixel, 3);
+    }
+    if (lineType == "col"){
+      pixelLum = get_pixel(image, iPixel, this->position, 3);
+    }
+
+
+  }
+}
+
+double ScanLine::getError(){
+  
+}
+
+
+
+ScanLine topScan = ScanLine("row", 250);
+ScanLine leftScan = ScanLine("col", 0);
+ScanLine rightScan = ScanLine("col", 500);
+
 
 /* variables */
 double vBaseLine = 10; // crusing speed if no errors
@@ -63,6 +131,9 @@ int main(){
   while(1){
     takePicture();
     SavePPMFile("i0.ppm",cameraView);
+    ScanLine testLine = ScanLine("C", 50);
+
+
 
     moveRobot(); // calling the moveRobot method function in order to move the robot
 
