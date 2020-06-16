@@ -2,6 +2,17 @@
 #include <vector>
 
 
+void doCore {
+
+}
+
+void doCompletion {
+
+}
+
+void doChallenge {
+
+}
 
 class ScanLine {
   public:
