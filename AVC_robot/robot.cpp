@@ -2,25 +2,42 @@
 #include <vector>
 
 
-void doCore {
+void doCore() {
 
 }
 
-void doCompletion {
+void doCompletion() {
 
 }
 
-void doChallenge {
+void doChallenge() {
 
 }
 
+/*This class represents a line in the camera view which we scan for white pixels on
+ *This class contructor can be used to create multiple scanline objects, and we can easily check these objects to see if they
+ * Have detected a white line and what the error is from the center of that scan line
+ * 
+*/ 
 class ScanLine {
+  
+  //PUBLIC INTERFACE: Represents the methods and the attritubes that anybody using the class has access too
   public:
+  //CONTRUCTOR: To create an instance of ScanLine, you need to specify if this is scanning a whole row or column in the image
+  //You also need to specify what the row nuber / column number you are scanning
+  //So far NO form of type checking. Ideally the postion would actually exist in the image
   ScanLine(std::string lineType, int position);
 
+  //Returns the calculated error of the white line from the center of the scanline
   double getError();
+  //Returns whether or not white pixels have been detected in this scanline
   bool checkWhite();
+  //This method must be called every time in the main image processing loop. This makes sure that the checkWhite and getError actually return the latest and relevant data
+  //Must pass the image that you wish the ScanLine to operate on. For our purposes, this will be the cameraView image that is defined in the included robot.hpp file.
   void update(ImagePPM image);
+  
+  //PRIVATE: Between here and the end of the class, these are internal variables which are important for the proper function of instance of this class, and have
+  //been protected from public use.
   private:
 
   double error;
@@ -31,32 +48,41 @@ class ScanLine {
 
 };
 
+//Contructor method implementation:
 ScanLine::ScanLine(std::string lineType, int position){
+  //Check to see if the user has provided an appropriate keyword as our lineType (Must be either "row" or "col")
+  //Again, no type checking is happening here. if you don't put anything except exactly "row" or "col", the code will proceed to fail in
+  //Spectacular fashion. I am yet to educate myself on what the best practices regarding this are.
+  //If so, set our attribute ccordingly
   if (lineType == "row"){
-    this->lineType = "col";
-  }
-  if (lineType == "col"){
     this->lineType = "row";
   }
+  if (lineType == "col"){
+    this->lineType = "col";
+  }
+
+  //Set our position attribute
   this->position = position;
 }
 
+//
 void ScanLine::update(ImagePPM image){
-  //This will hold
+  
   std::vector<int> pixelList;
 
   int numOfPixels;
-  if (lineType == "col"){
-    int numOfPixels = image.height;
+  if (this->lineType == "col"){
+    numOfPixels = image.height;
   }
-  else if (lineType == "row"){
-    int numOfPixels = image.width;
+  else if (this->lineType == "row"){
+    numOfPixels = image.width;
   }
 
 
   int whiteCount = 0;
   this->containsWhite = false;
-
+  std::cout<<this->position<<std::endl;
+  std::cout<<numOfPixels<<std::endl;
 
   for (int iPixel = 0; iPixel < numOfPixels; iPixel++){
     int pixelLum;
@@ -91,14 +117,14 @@ void ScanLine::update(ImagePPM image){
       whiteCount ++;
     }
   }
-  std::cout<<"Current error is " << this->error <<std::endl;
-  std::cout<<"We have white " << this->containsWhite << std::endl;
-  std::cout<<"pixelList array size" << pixelList.size() << std::endl;
-  std::cout<<"White count" << whiteCount << std::endl;
 }
 
 double ScanLine::getError(){
-  
+  return this->error;
+}
+
+bool ScanLine::checkWhite(){
+  return this->containsWhite;
 }
 
 
@@ -139,7 +165,11 @@ double calculateError(){
 
 /* method to move robot using the calculate error function */
 void moveRobot() {
-  double marginOfError = calculateError(); // setting the calculate error to the variable marginOfError
+  //double marginOfError = calculateError(); // setting the calculate error to the variable marginOfError
+   ScanLine bottomView = ScanLine("row", cameraView.height - 5);
+   bottomView.update(cameraView);
+   double marginOfError = bottomView.getError();
+
   double kP = 0.03; // constant for difference in left and right speed - dv
 
   /* if white pixels are on the right, increase right speed so robot moves to the left */
@@ -163,9 +193,9 @@ int main(){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
 
- 
 
   while(1){
+    takePicture();
     OpenPPMFile("cameraShot.png", cameraView);
     SavePPMFile("i0.ppm",cameraView);
 

@@ -37,9 +37,7 @@ void ScanLine::update(ImagePPM image){
     numOfPixels = image.height;
   }
   else if (this->lineType == "row"){
-    std::cout<<"This be a row"<<std::endl;
     numOfPixels = image.width;
-    std::cout<<"HELP, I AM STUCK IN A BOX " << numOfPixels << std::endl;
   }
 
 
@@ -54,7 +52,6 @@ void ScanLine::update(ImagePPM image){
 
     if (lineType == "row"){
       pixelLum = get_pixel(image, this->position, iPixel, 3);
-      pixelLum = get_pixel()
     }
     if (lineType == "col"){
       pixelLum = get_pixel(image, iPixel, this->position, 3);
@@ -82,14 +79,14 @@ void ScanLine::update(ImagePPM image){
       whiteCount ++;
     }
   }
-  std::cout<<"Current error is " << this->error <<std::endl;
-  std::cout<<"We have white " << this->containsWhite << std::endl;
-  std::cout<<"pixelList array size" << pixelList.size() << std::endl;
-  std::cout<<"White count" << whiteCount << std::endl;
 }
 
 double ScanLine::getError(){
-  
+  return this->error;
+}
+
+bool ScanLine::checkWhite(){
+  return this->containsWhite;
 }
 
 
