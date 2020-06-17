@@ -1,18 +1,14 @@
-#include "robot.hpp"
+//#include "robot.hpp"
 #include <vector>
 
 
-void doCore() {
 
-}
+ class something{
+    public:
+    void doCore(){
 
-void doCompletion() {
-
-}
-
-void doChallenge() {
-
-}
+    }
+  };
 
 /*This class represents a line in the camera view which we scan for white pixels on
  *This class contructor can be used to create multiple scanline objects, and we can easily check these objects to see if they
@@ -27,7 +23,7 @@ class ScanLine {
   //You also need to specify what the row nuber / column number you are scanning
   //So far NO form of type checking. Ideally the postion would actually exist in the image
   ScanLine(std::string lineType, int position);
-
+  
   //Returns the calculated error of the white line from the center of the scanline
   double getError();
   //Returns whether or not white pixels have been detected in this scanline
@@ -191,6 +187,8 @@ void moveRobot() {
 int main(){
 	if (initClientRobot()!=0){
 		std::cout<<" Error initializing robot"<<std::endl;
+    
+
 	}
 
 
