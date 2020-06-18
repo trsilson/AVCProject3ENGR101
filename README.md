@@ -219,4 +219,8 @@ assignment
 ![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/MS%20Paint%20Microsoft%20Paint%20Online(1).png?raw=true)
 2. Download the C++ game library SFML v 2.5.1. Link: https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip
 
-3. Extract both the mingw64 and SFML-2.5.1 folders out of their respective archives (you will need to install 7zip archiving program (or something equivalent) to be able to extract the mingw64 folder). Move these directories into 
+3. Extract both the mingw64 and SFML-2.5.1 folders out of their respective archives (you will need to install 7zip archiving program (or something equivalent) to be able to extract the mingw64 folder). Move these directories  the root of your system drive (This is typically C:\ on windows)
+
+4. Rename the SFML-2.5.1 folder to SFML. Your C:\ should now look like this:
+
+5. Press the Home key to 
