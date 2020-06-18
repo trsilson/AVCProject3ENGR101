@@ -23,6 +23,10 @@ class ScanLine {
   //This method must be called every time in the main image processing loop. This makes sure that the checkWhite and getError actually return the latest and relevant data
   //Must pass the image that you wish the ScanLine to operate on. For our purposes, this will be the cameraView image that is defined in the included robot.hpp file.
   void update(ImagePPM image);
+
+  void setBias(std::string direction);
+
+  std::string getBias();
   
   //PRIVATE: Between here and the end of the class, these are internal variables which are important for the proper function of instance of this class, and have
   //been protected from public use.
@@ -32,6 +36,7 @@ class ScanLine {
   std::string lineType;
   int position;
   bool containsWhite = false;
+  std::string directionBias = "CENTER";
   
 
 };
@@ -69,8 +74,9 @@ void ScanLine::update(ImagePPM image){
 
   int whiteCount = 0;
   this->containsWhite = false;
-  std::cout<<this->position<<std::endl;
-  std::cout<<numOfPixels<<std::endl;
+
+  // std::cout<<this->position<<std::endl;
+  // std::cout<<numOfPixels<<std::endl;
 
   for (int iPixel = 0; iPixel < numOfPixels; iPixel++){
     int pixelLum;
@@ -100,8 +106,19 @@ void ScanLine::update(ImagePPM image){
   
   
   for (int i = 0; i < pixelList.size(); i++){
-    if (pixelList.at(i) == 1){
-      this-> error = this-> error + (i - (numOfPixels / 2));
+    
+    
+    if (pixelList.at(i) != 0){
+      
+      double weightedI = 0;
+      if (i > pixelList.size() / 2){
+        weightedI = i * 1.1;
+      }
+      if (i < pixelList.size() / 2){
+        weightedI = i * 0.9;
+      }
+
+      this-> error = this-> error + (weightedI - ((numOfPixels / 2)));
       whiteCount ++;
     }
   }
@@ -115,10 +132,18 @@ bool ScanLine::checkWhite(){
   return this->containsWhite;
 }
 
+void ScanLine::setBias(std::string bias){
+  this->directionBias = bias;
+}
+
+std::string ScanLine::getBias(){
+  return this->directionBias;
+}
+
 
 
 /* variables */
-double vBaseLine = 10; // crusing speed if no errors
+double vBaseLine = 15; // crusing speed if no errors
 double vLeft = vBaseLine, vRight = vBaseLine; // left and right speed initialised to cruising speed
 
 
@@ -159,42 +184,40 @@ void doCore() {
 }
 
 
-void updateScanners(ScanLine tL, ScanLine lL, ScanLine bL, ScanLine rL){
-  takePicture();
-  tL.update(cameraView);
-  lL.update(cameraView);
-  rL.update(cameraView);
-  bL.update(cameraView);
-}
-
-
 void doCompletion() {
   if (initClientRobot()!=0){
 		std::cout<<" Error initializing robot"<<std::endl;
 	}
 
-  std::ofstream logFile; // Create an output stream for a log file
-  logFile.open("completion log.txt", std::ios::out);
-  logFile << "HAHAHAHA RONAHLDINO SOCCER!!!";
-  logFile.close();
-  ScanLine bottomLine = ScanLine("row", (cameraView.height - 5));
+  // std::ofstream logFile; // Create an output stream for a log file
+  // logFile.open("completion log.txt", std::ios::out);
+  // logFile << "HAHAHAHA RONAHLDINO SOCCER!!!";
+  // logFile.close();
+  ScanLine centerLine = ScanLine("row", (cameraView.height - 5));
   ScanLine leftLine = ScanLine("col", 5);
   ScanLine rightLine = ScanLine("col", (cameraView.width - 5));
-  ScanLine topLine = ScanLine ("row", 5);
+  //ScanLine topLine = ScanLine ("row", 5);
 
   
 
 
   while (1){
-    updateScanners(topLine, leftLine, bottomLine, rightLine);
 
-    double marginOfError = bottomLine.getError();
+    takePicture();
+    //topLine.update(cameraView);
+    leftLine.update(cameraView);
+    rightLine.update(cameraView);
+    centerLine.update(cameraView);
+
+
+
+
+    double marginOfError = centerLine.getError();
+    std::cout<<"Error here is "<<marginOfError<<std::endl;
 
     double kP = 0.03;
 
-  //This be the code for following a sraight line forward
-  if (bottomLine.checkWhite() && !(leftLine.checkWhite() || rightLine.checkWhite())){
-      /* if white pixels are on the right, increase right speed so robot moves to the left */
+     /* if white pixels are on the right, increase right speed so robot moves to the left */
     if (marginOfError > 0) { 
       vLeft = vBaseLine;
       vRight = vBaseLine - marginOfError * kP; 
@@ -208,27 +231,13 @@ void doCompletion() {
       vLeft = vBaseLine + marginOfError * kP;
       vRight = vBaseLine - marginOfError * kP; 
     }
-    if (!(bottomLine.checkWhite())){
-      vLeft = 0;
-      vRight = 0;
-    }
-    setMotors(vLeft,vRight);   
-  }
-  else{
-    //Maintain heading until average side error is above 100
-    if (leftLine.getError() > 100 || rightLine.getError() > 100){
-      setMotors(0,0);
+    setMotors(vLeft,vRight); 
 
-    //Go Left first, then straight second and then right last:
-
-
-
-    }
-  }
   std::cout<<" vLeft="<<vLeft<<"  vRight="<<vRight<<std::endl;
-  std::cout<<"Left white detected: " << leftLine.checkWhite() << " Center white detected: " << bottomLine.checkWhite() << " Right white detected: " << rightLine.checkWhite() << std::endl;
-  std::cout<<"Left error: " << leftLine.getError() << " Center error: " << bottomLine.getError() << " right error: " << rightLine.getError() << std::endl;
-  usleep(10000);
+  std::cout<<"Left white detected: " << leftLine.checkWhite() << " Center white detected: " << centerLine.checkWhite() << " Right white detected: " << rightLine.checkWhite() << std::endl;
+  std::cout<<"Left error: " << leftLine.getError() << " Center error: " << centerLine.getError() << " right error: " << rightLine.getError() << std::endl;
+  std::cout<<"Center line is biasing: " << centerLine.getBias() << std::endl;
+  usleep(10000); 
   }
 }
 
