@@ -143,7 +143,7 @@ std::string ScanLine::getBias(){
 
 
 /* variables */
-double vBaseLine = 15; // crusing speed if no errors
+double vBaseLine = 10; // crusing speed if no errors
 double vLeft = vBaseLine, vRight = vBaseLine; // left and right speed initialised to cruising speed
 
 
@@ -241,7 +241,80 @@ void doCompletion() {
   }
 }
 
+
+struct BoxDims{
+	int leftX = 0;
+  int bottomY = 0;
+  int rightX = 0;
+  int topY = 0; 
+};
+
+bool boxContainsRed(BoxDims box){
+  for (int row = box.topY; row < box.bottomY; row++){
+    for (int col = box.leftX; col < box.rightX; col++){
+      int pixelRed = get_pixel( cameraView, row, col, 0);
+      int pixelGreen = get_pixel( cameraView, row, col, 1);
+      int pixelBlue = get_pixel( cameraView, row, col, 2);
+      float pixelPercentRed = ((float)pixelRed / (float)(pixelRed + pixelBlue + pixelGreen));
+      if (pixelPercentRed > 0.6){
+        return true;
+      }
+      set_pixel(cameraView, row, col, 0, 0, 255);
+      
+    }
+  }
+  
+  return false;
+}
+
 void doChallenge() {
+  if (initClientRobot()!=0){
+		std::cout<<" Error initializing robot"<<std::endl;
+	}
+  //Take a picture for init purposes
+  
+//STEP ONE: HOW DO WE DETECT A FRONT LINE?
+BoxDims topScanBox;
+topScanBox.topY = 0;
+topScanBox.bottomY = 50;
+topScanBox.leftX = 50;
+topScanBox.rightX = 100;
+double vBaseLine = 40;
+
+BoxDims leftScanBox;
+leftScanBox.bottomY = cameraView.height;
+leftScanBox.topY = 25;
+leftScanBox.rightX = 45;
+leftScanBox.leftX = 0;
+
+BoxDims rightScanBox;
+rightScanBox.bottomY = 100;
+rightScanBox.topY = 0;
+rightScanBox.rightX = cameraView.width;
+rightScanBox.leftX = cameraView.width - 45;
+
+
+while (1){
+  takePicture();
+    
+  if (!boxContainsRed(leftScanBox)){
+    if (boxContainsRed(topScanBox)){
+      std::cout<<"Hold On"<<std::endl;
+      //usleep(5000000);
+      setMotors(20, 40);}
+  }
+    else if (!boxContainsRed(topScanBox)){
+      setMotors(vBaseLine, vBaseLine);
+      
+      
+    }
+    else{setMotors(40,20);}
+  SavePPMFile("i0.ppm",cameraView);
+  bool foundFront = boxContainsRed(topScanBox);
+    bool foundLeft = boxContainsRed(leftScanBox);
+    std::cout<<"We have left: " << foundLeft << "We have forward" << foundFront << std::endl;
+}
+
 
 }
 
