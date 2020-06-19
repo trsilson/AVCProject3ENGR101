@@ -216,9 +216,7 @@ assignment
 **WINDOWS**
 
 1. Download the C++ compilter Mingw v 7.3.0 for windows. Link: https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.3.0/threads-posix/seh/x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z/download
-
-![Screenshot 1](https://github.com/trsilson/AVCProject3ENGR101/blob/master/MS%20Paint%20Microsoft%20Paint%20Online(1).png?raw=true)
-
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/MS%20Paint%20Microsoft%20Paint%20Online(1).png?raw=true)
 2. Download the C++ game library SFML v 2.5.1. Link: https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip
 
 3. Extract both the mingw64 and SFML-2.5.1 folders out of their respective archives (you will need to install 7zip archiving program (or something equivalent) to be able to extract the mingw64 folder). Move these directories the root of your system drive (This is typically C:\ on windows)
@@ -230,11 +228,16 @@ assignment
 ![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/systemvariables.png?raw=true)
 
 6. In "System Properties" click the option "Environment Variables..."
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/enviromentvariables.png)
 
 7. In "Environment Variables" click the second "edit" option, highlighted in the screenshot:
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/editenviromentvariables.png)
 
 8. In "Edit environment variable" press the "New" option.
 
+
 9. After pressing "New" it will create a new text field. You now need to type (or copy-paste) the file pathway into text field. Press "OK".
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/editenviromentvariablesnew.png)
 
 10. Open a Command Prompt and type "g++ --version" into the command line. The outcome should look like this:
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/commandprompt.png)
