@@ -278,12 +278,10 @@ assignment
 
 2. Type in [sudo apt install libsfml-dev] This will install libsfml2.4, which is still compatible with our project.
 The our project from the git repository and extract.
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Linux%20Instruct1.png?raw=true)
 3. In the linux terminal, change directory into AVC_robot and run the command [make]. The makefile provided in the project should auto-detect the operating system being used and know where to grab the SFML dependency. For linux and mac, this is the location where the installer places in by default, and on windows this would be C:\SFML.
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Linux%20Instruct2.png?raw=true)
 4. Once compiled, change into the AVC_server folder and run [make] again.
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
 5. This is where you should have two terminals open, in the directories AVC_robot and the other in the AVC_server. In the terminal AVC_server, execute the [./server3] executable by putting that into the terminal.
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
 6. Real quickly, in the other terminal execute [./robot]. The code should be ready to run now.
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Linux%20Instruct%203.png?raw=true)
