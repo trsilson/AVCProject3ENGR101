@@ -209,3 +209,18 @@ assignment
 *   AVC log 24th 
 
     All team members will participate equally with planning, coding and writing logs which could help promote different aspects of knowledge for each team member.
+
+
+
+## INSTALL INSTRUCTIONS
+
+* step one: download the sfml software:
+ windows - 
+ mac -
+
+* step two: 
+
+* step three:
+
+* step four:
+
