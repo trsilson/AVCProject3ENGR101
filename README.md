@@ -228,20 +228,20 @@ assignment
 ![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/systemvariables.png?raw=true)
 
 6. In "System Properties" click the option "Environment Variables..."
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/enviromentvariables.png)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/enviromentvariables.png?raw=true)
 
 7. In "Environment Variables" click the second "edit" option, highlighted in the screenshot:
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/editenviromentvariables.png)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/editenviromentvariables.png?raw=true)
 
 8. In "Edit environment variable" press the "New" option.
 
 
 9. After pressing "New" it will create a new text field. You now need to type (or copy-paste) the file pathway into text field. Press "OK". 
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/editenviromentvariablesnew.png)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/editenviromentvariablesnew.png?raw=true)
 
 
 10. Open a Command Prompt and type "g++ --version" into the command line. The outcome should look like this:
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/commandprompt.png)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/commandprompt.png?raw=true)
 
 **MAC**
 
@@ -250,15 +250,15 @@ assignment
 2. Make sure vscode is is installed.
 
 3. Then type this into terminal window: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)". You can find this in the main page of the homebew website as well:
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage1.png)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage1.png?raw=true)
 
 4. Once homebrew is installed paste into terminal: brew install sfml 
 
 5. Then open vscode and after adding/editing code, open a new terminal from the 'Terminal' option at the top.
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage2.png)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage2.png?raw=true)
 
 6. Then split the terminal by clicking the icon which looks like this:
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage3.png)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage3.png?raw=true)
 
 6. In the left split terminal type:
 * cd AVC_server/ after the AVCProject3ENGR101 %
@@ -270,4 +270,20 @@ assignment
 * Followed by 'make' (without speech marks) after AVC_robot %
 * Then lastly followed by ./robot after AVC_robot %
 
-![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
+
+
+**LINUX:**
+1. Open up a terminal (On most distros, you can use the Keyboard shortcut Ctrl-Alt-T)
+
+2. Type in [sudo apt install libsfml-dev] This will install libsfml2.4, which is still compatible with our project.
+The our project from the git repository and extract.
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
+3. In the linux terminal, change directory into AVC_robot and run the command [make]. The makefile provided in the project should auto-detect the operating system being used and know where to grab the SFML dependency. For linux and mac, this is the location where the installer places in by default, and on windows this would be C:\SFML.
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
+4. Once compiled, change into the AVC_server folder and run [make] again.
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
+5. This is where you should have two terminals open, in the directories AVC_robot and the other in the AVC_server. In the terminal AVC_server, execute the [./server3] executable by putting that into the terminal.
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
+6. Real quickly, in the other terminal execute [./robot]. The code should be ready to run now.
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png?raw=true)
