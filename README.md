@@ -210,17 +210,15 @@ assignment
 
     All team members will participate equally with planning, coding and writing logs which could help promote different aspects of knowledge for each team member.
 
+![GitHub Logo](/images/logo.png)
 
 
 ## INSTALL INSTRUCTIONS
 
-* step one: download the sfml software:
- windows - 
- mac -
+**WINDOWS**
 
-* step two: 
+1. Download the C++ compilter Mingw v 7.3.0 for windows. Link: https://sourceforge.net/projects/mingw-w64/files/Toolchains%20targetting%20Win64/Personal%20Builds/mingw-builds/7.3.0/threads-posix/seh/x86_64-7.3.0-release-posix-seh-rt_v5-rev0.7z/download
 
-* step three:
+2. Download the C++ game library SFML v 2.5.1. Link: https://www.sfml-dev.org/files/SFML-2.5.1-windows-gcc-7.3.0-mingw-64-bit.zip
 
-* step four:
-
+3. Extract both the mingw64 and SFML-2.5.1 folders out of their respective archives (you will need to install 7zip archiving program (or something equivalent) to be able to extract the mingw64 folder). Move these directories into 
