@@ -236,7 +236,8 @@ assignment
 8. In "Edit environment variable" press the "New" option.
 
 
-9. After pressing "New" it will create a new text field. You now need to type (or copy-paste) the file pathway into text field. Press "OK". ![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/editenviromentvariablesnew.png)
+9. After pressing "New" it will create a new text field. You now need to type (or copy-paste) the file pathway into text field. Press "OK". 
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/editenviromentvariablesnew.png)
 
 
 10. Open a Command Prompt and type "g++ --version" into the command line. The outcome should look like this:
