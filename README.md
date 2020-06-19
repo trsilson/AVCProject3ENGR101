@@ -250,15 +250,15 @@ assignment
 2. Make sure vscode is is installed.
 
 3. Then type this into terminal window: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)". You can find this in the main page of the homebew website as well:
-(first image in discord here)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage1.png)
 
 4. Once homebrew is installed paste into terminal: brew install sfml 
 
 5. Then open vscode and after adding/editing code, open a new terminal from the 'Terminal' option at the top.
-(second image in discord here)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage2.png)
 
 6. Then split the terminal by clicking the icon which looks like this:
-(third image in discord here)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/MacImage3.png)
 
 6. In the left split terminal type:
 * cd AVC_server/ after the AVCProject3ENGR101 %
@@ -270,4 +270,4 @@ assignment
 * Followed by 'make' (without speech marks) after AVC_robot %
 * Then lastly followed by ./robot after AVC_robot %
 
-(fourth image in discord here)
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/Mac%20Image%204.png)
