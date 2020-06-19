@@ -224,7 +224,8 @@ assignment
 4. Rename the SFML-2.5.1 folder to SFML. Your C:\ should now look like this: 
 ![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/MS%20Paint%20Microsoft%20Paint%20Online(1).png?raw=true)
 
-5. Press the Home key and search for "System Variables" in the search menu. Click on the option that looks like this:
+5. Press the Home key and search for "System Variables" in the search menu. Click on the option that looks like this: 
+![stack Overflow](https://github.com/trsilson/AVCProject3ENGR101/blob/master/images/systemvariables.png?raw=true)
 
 6. In "System Properties" click the option "Environment Variables..."
 
